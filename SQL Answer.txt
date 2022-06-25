@@ -1,0 +1,10 @@
+SQL Q.no-1
+
+select  DATENAME(month,HireDate) AS "MONTHNAME" ,count(format(HireDate,'MM')) 
+FROM AdventureWorks2019.HumanResources.Employee group by DATENAME(month,HireDate)
+
+SQL Q.no=2
+
+select Name,HireDate FROM (select  e.Name,e.DepartmentID,d.BusinessEntityID  FROM   [AdventureWorks2019].[HumanResources].[Department] AS e INNER JOIN 
+[AdventureWorks2019].[HumanResources].[EmployeeDepartmentHistory] AS d on e.DepartmentID=d.DepartmentID ) AS dept 
+ INNER JOIN [AdventureWorks2019].[HumanResources].[Employee] as emp on dept.BusinessEntityID=emp.BusinessEntityID 
